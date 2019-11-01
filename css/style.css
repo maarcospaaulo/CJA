@@ -902,6 +902,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #contact .form button[type="submit"]:hover {
   background: #51d8ad;
+  cursor: pointer;
 }
 
 /*--------------------------------------------------------------

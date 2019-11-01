@@ -395,30 +395,30 @@
 
           <div class="col-lg-5 col-md-8">
             <div class="form">
-              <div id="sendmessage">Envie-nos uma mensagem por e-mail.</div>
-              <div id="errormessage"></div>
-              <form action="" method="post" role="form" class="contactForm">
+              <form action="contactform/contactform.php" method="post" role="form" class="contactForm">
+                <!-- NOME -->
                 <div class="form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Nome Completo"
-                    data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                  <div class="validation"></div>
+                    data-rule="minlen:4" data-msg="Digite o nome completo" />
                 </div>
+                <!-- EMAIL -->
                 <div class="form-group">
                   <input type="email" class="form-control" name="email" id="email" placeholder="Seu Email"
-                    data-rule="email" data-msg="Please enter a valid email" />
-                  <div class="validation"></div>
+                    data-rule="email" data-msg="Digite um e-mail válido" />
                 </div>
+                <!-- ASSUNTO -->
                 <div class="form-group">
                   <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto"
-                    data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                  <div class="validation"></div>
+                    data-rule="minlen:4" data-msg="Mínimo de 8 letras" />
                 </div>
+                <!-- MSG -->
                 <div class="form-group">
                   <textarea class="form-control" name="message" rows="5" data-rule="required"
-                    data-msg="Please write something for us" placeholder="Messagem"></textarea>
-                  <div class="validation"></div>
+                    data-msg="Por favor, digite uma mensagem." placeholder="Mensagem"></textarea>
                 </div>
-                <div class="text-center"><button type="submit">Enviar Mensagem</button></div>
+                <div class="text-center">
+                  <button type="submit">Enviar Mensagem</button>
+                </div>
               </form>
             </div>
           </div>
@@ -462,7 +462,6 @@
 
   <!-- Contact Form JavaScript File -->
   <script src="contactform/contactform.js"></script>
-  <script src="contactform/contactform.php"></script>
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>

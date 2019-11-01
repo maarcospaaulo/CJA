@@ -1,27 +1,45 @@
 <?php
-// Check for empty fields
 
-if(empty($_POST['name']) ||
-empty($_POST['email']) ||
-empty($_POST['subject']) ||
-empty($_POST['message']) ||
-!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
-{
-echo "No arguments Provided!";
-return false;
+if (isset($_POST["enviar"])) {
+    
+    if (isset($_POST["name"])) {
+        $name = $_POST["name"]; // Resgata o nome digitado no form
+    }
+    if (isset($_POST["email"])) {
+        $email = $_POST["email"]; // Resgata o email digitado no form
+    }
+    
+    if (isset($_POST["subject"])) {
+        $subject = $_POST["subject"]; // Resgata o assunto digitado no form
+    }
+    
+    if (isset($_POST["message"])) {
+        $message = $_POST["message"]; // Resgata o mensagem digitado no form
+    }
+
+    // CORPO DA MENSAGEM
+    $texto = "Formulario \n";
+    $texto .= "Name: $name \n";
+    $texto .= "Name: $email \n";
+    $texto .= "Name: $subject \n";
+    $texto .= "Name: $message \n";
+
+    // EMAIL DE DESTINO
+    $emailDestino = "cicero.jalmeida@hotmail.com";
+    $emailRemetente = "maarcospaaulo@live.com";
+
+    $headers = "From:" .$emailRemetente. "\n";
+    $headers .= "Reply-To:" .$email. "\n"; 
+    $headers .= "X-Mailer: PHP  v".phpversion()."\n";
+    $headers .= "X-IP:  ".$_SERVER['REMOTE_ADDR']."\n";
+    $headers .= "Return-Path:" .$emailRemetente. "\n";
+    $headers .= "MIME-Version: 1.0\n";
+    $headers .= "Content-type: text/html; charset=iso-8859-1\n";
+
+    if (mail($emailDestino, $subject, $texto, $headers)) {
+        echo "E-mail enviado com sucesso!";
+    } else {
+        echo "Falha no envio do E-Mail!"
+    }
 }
-
-$name = strip_tags(htmlspecialchars($_POST['name']));
-$email_address = strip_tags(htmlspecialchars($_POST['email']));
-$phone = strip_tags(htmlspecialchars($_POST['subject']));
-$message = strip_tags(htmlspecialchars($_POST['message']));
-
-// Create the email and send the message
-$to = 'cicero.jalmeida@hotmail.com'; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
-$email_subject = "Website Contact Form: $name";
-$email_body = "Você recebeu uma nova mensagem do formulário de contato do seu website.\\n\\n"."Aqui estão os detalhes:\\n\\nNome: $name\\n\\nEmail: $email_address\\n\\nPhone: $phone\\n\\nMensagem:\\n$message";
-$headers = "From: noreply@yourdomain.com\\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
-$headers .= "Reply-To: $email_address";
-mail($to,$email_subject,$email_body,$headers);
-return true;
 ?>
