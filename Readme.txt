@@ -1,6 +1,3 @@
-Thanks for downloading this theme!
+Website for C.J.A Poços Artesianos
 
-Theme Name: Regna
-Theme URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
-Author: BootstrapMade.com
-Author URL: https://bootstrapmade.com
+URL: https://www.cjapocosartesianos.com.br
